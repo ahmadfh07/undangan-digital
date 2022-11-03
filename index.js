@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const http = require("http");
 const { Server } = require("socket.io");
+const qrcode = require("qrcode");
 
 const port = 3000;
 const app = express();
@@ -27,11 +28,15 @@ app.get("/", (req, res) => {
 
 app.get("/undangan/:url", async (req, res) => {
   const reciever = await Reciever.findOne({ url: req.params.url });
-  res.render("undangan", {
-    title: "Undangan",
-    layout: "layout/main-layout",
-    reciever,
+  qrcode.toDataURL(JSON.stringify(reciever), (err, url) => {
+    res.render("undangan", {
+      title: "Undangan",
+      layout: "layout/main-layout",
+      reciever,
+      QRurl: url,
+    });
   });
+  console.log(reciever);
 });
 
 app.use((req, res) => {

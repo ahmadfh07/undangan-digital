@@ -2,4 +2,9 @@
     <p class="text-2xl text-red-700">
         <%= reciever.Nama %>
     </p>
+    <div id="QRimage" class="p-3 border-dashed bg-slate-500 flex justify-center items-center w-fit h-fit">
+        <img src="<%= QRurl %>" />
+    </div>
+    <button id="btn-download">Download QR</button>
 </div>
+<script src="/scriptUndangan.js" type="module"></script>

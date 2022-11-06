@@ -20,10 +20,10 @@
     "mongoose": "^6.6.5",
     "qrcode": "^1.5.1",
     "short-unique-id": "^4.4.4",
-    "socket.io": "^4.5.3"
+    "socket.io": "^4.5.3",
+    "dotenv": "^16.0.3"
   },
-  "devDependencies":{
-    "dotenv": "^16.0.3",
+  "devDependencies": {
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "tailwindcss": "^3.1.8"

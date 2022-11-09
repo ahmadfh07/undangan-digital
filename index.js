@@ -1,4 +1,4 @@
-require("./utils/dbconnect");
+const { connectDB } = require("./utils/dbconnect");
 const Reciever = require("./model/reciever");
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
@@ -36,7 +36,6 @@ app.get("/undangan/:url", async (req, res) => {
       QRurl: url,
     });
   });
-  console.log(reciever);
 });
 
 app.use((req, res) => {
@@ -44,6 +43,10 @@ app.use((req, res) => {
   res.send("<h1>404</h1>");
 });
 
-server.listen(process.env.PORT || port, function () {
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+console.log(process.env.NODE_ENV);
+
+connectDB().then(() => {
+  server.listen(process.env.PORT || port, function () {
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
 });

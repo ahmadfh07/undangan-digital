@@ -32,7 +32,7 @@ app.get("/undangan/:url", async (req, res) => {
     res.render("undangan", {
       title: "Undangan",
       layout: "layout/main-layout",
-      reciever,
+      reciever: reciever ? reciever : { Nama: "Fulanah binti fulan" },
       QRurl: url,
     });
   });
@@ -42,8 +42,6 @@ app.use((req, res) => {
   res.status(404);
   res.send("<h1>404</h1>");
 });
-
-console.log(process.env.NODE_ENV);
 
 connectDB().then(() => {
   server.listen(process.env.PORT || port, function () {

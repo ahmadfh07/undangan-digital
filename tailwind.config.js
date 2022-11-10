@@ -10,6 +10,9 @@ module.exports = {
         playfair: ["Playfair Display"],
         dancing: ["Dancing Script"],
         poppins: ["Poppins"],
+        kufi: ["Reem Kufi Fun"],
+        aref: ["Aref Ruqaa Ink"],
+        rakkas: ["Rakkas"],
       },
       colors: {
         biruTua: "#1E3135",

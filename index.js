@@ -1,25 +1,25 @@
 const { connectDB } = require("./utils/dbconnect");
 const Reciever = require("./model/reciever");
+const Attendee = require("./model/attendee");
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const bodyParser = require("body-parser");
 const path = require("path");
 const http = require("http");
-const { Server } = require("socket.io");
 const qrcode = require("qrcode");
 
 const port = 3000;
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
 
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(expressLayouts);
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   res.render("home", {
     title: "HOME",
     layout: "layout/main-layout",
@@ -36,6 +36,23 @@ app.get("/undangan/:url", async (req, res) => {
       QRurl: url,
     });
   });
+});
+
+app.get("/scanner", (req, res) => {
+  res.render("scanner", {
+    title: "Scanner",
+    layout: "layout/main-layout",
+  });
+});
+
+app.post("/kedatangan", async (req, res) => {
+  let attendee = await Attendee.findOne({ Nama: req.body.Nama });
+  if (!attendee) {
+    Attendee.insertMany([{ Nama: req.body.Nama, NoHp: req.body.NoHp }]);
+    res.send({ status: "Success : data berhasil dicatat" });
+  } else {
+    res.send({ status: "Sudah Input : qr code hanya bisa untuk sekali" });
+  }
 });
 
 app.use((req, res) => {

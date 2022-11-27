@@ -20,8 +20,7 @@
     "express-ejs-layouts": "^2.5.1",
     "mongoose": "^6.6.5",
     "qrcode": "^1.5.1",
-    "short-unique-id": "^4.4.4",
-    "socket.io": "^4.5.3"
+    "short-unique-id": "^4.4.4"
   },
   "devDependencies": {
     "dotenv": "^16.0.3",

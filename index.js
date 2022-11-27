@@ -49,9 +49,9 @@ app.post("/kedatangan", async (req, res) => {
   let attendee = await Attendee.findOne({ Nama: req.body.Nama });
   if (!attendee) {
     Attendee.insertMany([{ Nama: req.body.Nama, NoHp: req.body.NoHp }]);
-    res.send({ status: "success", class: "buttonScan" });
+    res.send({ status: "Success : data berhasil dicatat" });
   } else {
-    res.send({ status: "sudah input", class: "buttonStopScan" });
+    res.send({ status: "Sudah Input : qr code hanya bisa untuk sekali" });
   }
 });
 

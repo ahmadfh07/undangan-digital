@@ -12,7 +12,7 @@ function onScanSuccess(qrCodeMessage) {
   })
     .then((response) => response.json())
     .then((data) => {
-      document.getElementById("status").outerHTML = `<span id="status" class="${data.class}">${data.status}</span>`;
+      alert(data.status);
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -20,7 +20,7 @@ function onScanSuccess(qrCodeMessage) {
 }
 
 function onScanError(errorMessage) {
-  console.loc(errorMessage);
+  console.log(errorMessage);
 }
 
 var html5QrcodeScanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 250 });

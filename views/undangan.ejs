@@ -1,5 +1,23 @@
 <div class="h-screen w-screen">
   <div id="main" class="flex h-full w-full snap-x snap-mandatory overflow-x-scroll bg-gradient-to-br from-white to-slate-300 xs:overflow-y-hidden">
+    <section class="relative flex h-screen w-screen flex-none snap-start items-center justify-center">
+      <div id="sign" class="absolute z-50">
+        <div class="top-0 flex h-screen w-screen flex-col items-center justify-center bg-black bg-opacity-70">
+          <img class="w-60 -scale-x-100" src="/gif/swipeLeft.gif" alt="" />
+          <h1 class="text-center font-poppins text-xl text-white">geser ke kiri untuk melihat undangan</h1>
+        </div>
+      </div>
+      <img class="absolute top-0 left-0" src="/img/tr3.webp" loading="lazy" alt="" />
+      <div class="relative flex h-full flex-col items-center justify-center">
+        <div id="QRimage" class="flex w-fit flex-col items-center justify-center rounded-md border-dashed bg-[#A0B082] p-3">
+          <h1 class="mb-3 font-dancing text-xl font-semibold">Alfi & Agus</h1>
+          <img src="<%= QRurl %>" />
+          <h1 class="pt-2 text-xs font-semibold">QR Kedatangan</h1>
+        </div>
+        <button class="mt-4 rounded-full bg-[#A0B082] px-4 py-2" id="btn-download">Download QR</button>
+        <p class="mt-8 px-4 text-center font-playfair">"Cukup tunjukkan kode qr ini saat masuk, tidak perlu mencatat di buku tamu"</p>
+      </div>
+    </section>
     <section class="h-screen w-screen flex-none snap-start items-center justify-center">
       <div class="relative flex h-full flex-col items-center justify-center">
         <img class="absolute top-0 right-0" src="/img/tr1.webp" loading="lazy" alt="" />
@@ -17,16 +35,6 @@
         <div class="relative z-10 flex h-full flex-col items-center justify-center">
           <img class="w-64" src="/img/ALFI AGUS.webp" loading="lazy" alt="Alfi & Agus" />
         </div>
-      </div>
-    </section>
-    <section class="h-screen w-screen flex-none snap-start items-center justify-center">
-      <div class="relative flex h-full flex-col items-center justify-center">
-        <div id="QRimage" class="flex w-fit flex-col items-center justify-center rounded-md border-dashed bg-[#A0B082] p-3">
-          <h1 class="mb-3 font-dancing text-xl font-semibold">Alfi & Agus</h1>
-          <img src="<%= QRurl %>" />
-          <h1 class="pt-2 text-xs font-semibold">SCAN UNTUK MASUK</h1>
-        </div>
-        <button class="mt-4 rounded-full bg-[#A0B082] px-4 py-2" id="btn-download">Download QR</button>
       </div>
     </section>
     <section class="relative flex h-screen w-screen flex-none snap-start items-center justify-center">
@@ -91,28 +99,22 @@
     </section>
     <section class="h-screen w-screen flex-none snap-start items-center justify-center">
       <div class="relative">
-        <img class="absolute -top-1 right-0" src="/img/tr3.webp" loading="lazy" alt="" />
+        <img class="absolute top-0 right-0" src="/img/tr3.webp" loading="lazy" alt="" />
       </div>
       <div class="relative z-10 flex h-full flex-col items-center justify-center">
         <div class="text-center font-playfair text-xs font-medium text-biruTua">
           <p>"Dan diantara tanda-tanda kebesaran-Nya ialah<br />diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri<br />supaya kamu cenderung dan merasa tentram kepadanya<br />dan dijadikan-Nya diantaramu rasa kasih dan sayang.<br />Sesungguhnya pada yang demikian itu menjadi tanda-tanda bagi kaum yang berfikir".</p>
           <h3 class="pt-4">(Surat Ar-Ruum:21)</h3>
         </div>
-        <div class="mt-10 flex w-64 flex-col items-center justify-center rounded-md bg-white p-4">
+        <div class="mt-5 flex w-64 flex-col items-center justify-center rounded-md bg-white p-4 pt-1">
           <h1 class="text-lg font-bold">DENAH LOKASI</h1>
-          <iframe class="mt-4 w-60 xs:h-72" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.633844672264!2d110.35521591478778!3d-7.828521979930098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a57b79ec5c9a9%3A0xf9abd6c29a05ca!2sPendhapa%20Art%20Space!5e0!3m2!1sen!2sid!4v1667744941286!5m2!1sen!2sid" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe class="w-60 xs:h-72" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.633844672264!2d110.35521591478778!3d-7.828521979930098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a57b79ec5c9a9%3A0xf9abd6c29a05ca!2sPendhapa%20Art%20Space!5e0!3m2!1sen!2sid!4v1667744941286!5m2!1sen!2sid" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="absolute -bottom-2 right-1/2 translate-x-1/2">
+          <img class="w-[100px]" src="/img/Group 3.webp" alt="" />
         </div>
       </div>
     </section>
   </div>
 </div>
-<!-- <div>
-    <p class="text-2xl text-red-700">
-        <%= reciever.Nama %>
-    </p>
-    <div id="QRimage" class="p-3 border-dashed bg-slate-500 flex justify-center items-center w-fit h-fit">
-        <img src="<%= QRurl %>" />
-    </div>
-    <button id="btn-download">Download QR</button>
-</div>-->
 <script src="/scriptUndangan.js" type="module"></script>

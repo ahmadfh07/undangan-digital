@@ -12,3 +12,12 @@ btnDownload.addEventListener("click", () => {
     anchor.remove();
   });
 });
+
+document.querySelector("#main").addEventListener("scroll", function (e) {
+  let horizontal = e.currentTarget.scrollLeft;
+  const sign = document.querySelector("#sign");
+
+  if (horizontal > 0) {
+    sign?.remove();
+  }
+});

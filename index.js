@@ -40,7 +40,10 @@ app.get("/undangan/:url", async (req, res) => {
 
 app.use((req, res) => {
   res.status(404);
-  res.send("<h1>404</h1>");
+  res.render("eror", {
+    title: "ERROR 404",
+    layout: "layout/main-layout",
+  });
 });
 
 connectDB().then(() => {

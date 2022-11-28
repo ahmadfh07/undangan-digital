@@ -1,6 +1,8 @@
 import "https://html2canvas.hertzen.com/dist/html2canvas.min.js";
 const btnDownload = document.querySelector("#btn-download");
 
+
+
 btnDownload.addEventListener("click", () => {
   const screenshotTarget = document.querySelector("#QRimage");
   html2canvas(screenshotTarget).then((canvas) => {

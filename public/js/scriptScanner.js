@@ -3,6 +3,10 @@ let delay = 3000; //debounce
 function onScanSuccess(qrCodeMessage) {
   if (lastScan >= Date.now() - delay) return; //debaounce
   lastScan = Date.now(); //debounce
+  if (!JSON.parse(qrCodeMessage)) {
+    alert("QR code tidak valid");
+    return;
+  }
   fetch(`${window.location.origin}/kedatangan`, {
     method: "POST",
     headers: {
@@ -20,7 +24,7 @@ function onScanSuccess(qrCodeMessage) {
 }
 
 function onScanError(errorMessage) {
-  console.log(errorMessage);
+  // console.log(errorMessage);
 }
 
 var html5QrcodeScanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 250 });

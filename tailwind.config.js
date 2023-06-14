@@ -13,9 +13,12 @@ module.exports = {
         kufi: ["Reem Kufi Fun"],
         aref: ["Aref Ruqaa Ink"],
         rakkas: ["Rakkas"],
+        Inter: ['"Inter"', "sans-serif"],
       },
       colors: {
         biruTua: "#1E3135",
+        10: "#F7E3AF",
+        30: "#F3EEC3",
       },
       fontSize: {
         xxs: "0.65rem",

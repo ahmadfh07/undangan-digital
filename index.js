@@ -22,14 +22,14 @@ app.use(expressLayouts);
 app.get("/", async (req, res) => {
   res.render("home", {
     title: "HOME",
-    layout: "layout/main-layout",
+    layout: "layout/landing-page-layout",
   });
 });
 
 app.get("/undangan/:url", async (req, res) => {
   const reciever = await Reciever.findOne({ url: req.params.url });
   qrcode.toDataURL(JSON.stringify(reciever), (err, url) => {
-    res.render("undangan", {
+    res.render("undangan-ajilina", {
       title: "Undangan",
       layout: "layout/main-layout",
       reciever: reciever ? reciever : { Nama: "Fulanah binti fulan" },

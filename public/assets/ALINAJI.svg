@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286.57 222.32">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 87.3px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #a58c21;
+        font-family: GreatVibes-Regular, 'Great Vibes';
+      }
+
+      .cls-2 {
+        font-size: 55.89px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <text class="cls-1" transform="translate(0 78.74) scale(1.02 1)"><tspan x="0" y="0">Alin</tspan></text>
+      <text class="cls-1" transform="translate(185.67 187.32) scale(1.02 1)"><tspan x="0" y="0">Aji</tspan></text>
+      <text class="cls-2" transform="translate(130.25 126.58) scale(1.02 1)"><tspan x="0" y="0">&amp;</tspan></text>
+    </g>
+  </g>
+</svg>

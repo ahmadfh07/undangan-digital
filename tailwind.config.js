@@ -14,6 +14,9 @@ module.exports = {
         aref: ["Aref Ruqaa Ink"],
         rakkas: ["Rakkas"],
         Inter: ['"Inter"', "sans-serif"],
+        bodoni: ["bodoni"],
+        greatvibes: ["greatvibes"],
+        scriptbl: ["scriptbl"],
       },
       colors: {
         biruTua: "#1E3135",

@@ -9,8 +9,32 @@
 @tailwind utilities;
 
 .buttonScan {
-  @apply mt-7 rounded-md bg-green-600 py-2 px-2 text-sm font-semibold text-white transition-all duration-300 hover:shadow-lg;
+  @apply mt-7 rounded-md bg-green-600 px-2 py-2 text-sm font-semibold text-white transition-all duration-300 hover:shadow-lg;
 }
 .buttonStopScan {
-  @apply mt-7 rounded-md bg-red-600 py-2 px-2 text-sm font-semibold text-white transition-all duration-300 hover:shadow-lg;
+  @apply mt-7 rounded-md bg-red-600 px-2 py-2 text-sm font-semibold text-white transition-all duration-300 hover:shadow-lg;
+}
+@font-face {
+  font-family: bodoni;
+  src: url(/assets/font/BODONI\ BK\ BT\ BOOK.TTF);
+}
+@font-face {
+  font-family: bodoniItalic;
+  src: url(/assets/font/BODONI\ BK\ BT\ BOOK\ ITALIC.TTF);
+}
+@font-face {
+  font-family: gothic;
+  src: url(/assets/font/GOTHIC.TTF);
+}
+@font-face {
+  font-family: gothicCb;
+  src: url(/assets/font/GOTHICB.TTF);
+}
+@font-face {
+  font-family: greatvibes;
+  src: url(/assets/font/GREATVIBES-REGULAR.TTF);
+}
+@font-face {
+  font-family: scriptbl;
+  src: url(/assets/font/SCRIPTBL.TTF);
 }

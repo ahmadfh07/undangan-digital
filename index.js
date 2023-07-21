@@ -1,6 +1,7 @@
 const { connectDB } = require("./utils/dbconnect");
 const Reciever = require("./model/reciever");
 const Attendee = require("./model/attendee");
+const Saying = require("./model/saying");
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const bodyParser = require("body-parser");
@@ -29,6 +30,7 @@ app.get("/", async (req, res) => {
 
 app.get("/undangan/:url", async (req, res) => {
   const reciever = await Reciever.findOne({ url: req.params.url });
+  const lastTenSayings = await Saying.find({}).sort({ _id: -1 }).limit(10);
   const confirmedToAttendCount = await Reciever.find({ attendanceStatus: "hadir" }).count();
   qrcode.toDataURL(JSON.stringify(reciever), (err, url) => {
     res.render("undangan-ajilina", {
@@ -36,6 +38,7 @@ app.get("/undangan/:url", async (req, res) => {
       layout: "layout/main-layout",
       reciever: reciever ? reciever : { Nama: "Fulanah binti fulan" },
       confirmedToAttendCount,
+      lastTenSayings,
       QRurl: url,
     });
   });
@@ -49,6 +52,19 @@ app.post("/undangan/:url/presensi", async (req, res) => {
     } else {
       res.send({ status: "error", msg: "Berhasil mengkonfirmasi kehadiran" });
     }
+  } catch (err) {
+    res.send({ status: "error", msg: err.message });
+  }
+});
+
+app.post("/undangan/:url/ucapan", async (req, res) => {
+  try {
+    const reciever = await Reciever.findOne({ url: req.params.url });
+    if (!reciever) {
+      throw new Error("Pengirim tidak valid");
+    }
+    const saying = await Saying.insertMany({ Nama: reciever.Nama, NoHp: reciever.NoHp, saying: req.body.saying });
+    res.send({ status: "success", msg: "Berhasil mengirim ucapan" });
   } catch (err) {
     res.send({ status: "error", msg: err.message });
   }

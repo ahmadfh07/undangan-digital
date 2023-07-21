@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const http = require("http");
 const qrcode = require("qrcode");
+// const { body, validationResult, check } = require("express-validator");
 
 const port = 3000;
 const app = express();
@@ -28,14 +29,29 @@ app.get("/", async (req, res) => {
 
 app.get("/undangan/:url", async (req, res) => {
   const reciever = await Reciever.findOne({ url: req.params.url });
+  const confirmedToAttendCount = await Reciever.find({ attendanceStatus: "hadir" }).count();
   qrcode.toDataURL(JSON.stringify(reciever), (err, url) => {
     res.render("undangan-ajilina", {
       title: "Undangan",
       layout: "layout/main-layout",
       reciever: reciever ? reciever : { Nama: "Fulanah binti fulan" },
+      confirmedToAttendCount,
       QRurl: url,
     });
   });
+});
+
+app.post("/undangan/:url/presensi", async (req, res) => {
+  try {
+    const reciever = await Reciever.findOneAndUpdate({ url: req.params.url }, { attendanceStatus: "hadir" });
+    if (!reciever) {
+      throw new Error("Anda tidak termasuk tamu undangan");
+    } else {
+      res.send({ status: "error", msg: "Berhasil mengkonfirmasi kehadiran" });
+    }
+  } catch (err) {
+    res.send({ status: "error", msg: err.message });
+  }
 });
 
 app.get("/scanner", (req, res) => {

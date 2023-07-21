@@ -44,7 +44,7 @@
             Kepada Yang Terhormat <br />
             Bapak/ Ibu/ Saudara/i :
           </h3>
-          <h1 class="text-xl">Siena Ikhsan Suadi</h1>
+          <h1 class="text-xl"><%= reciever.Nama %></h1>
           <h3 class="text-[8px]">
             *mohon maaf apabila terdapat kesalahan <br />
             penulisan nama dan atau gelar
@@ -275,10 +275,10 @@
         <div class="bg-[#a58c21] rounded-[30px] px-7 py-7 w-80">
           <div class="text-center text-white border-8 font-bodoni rounded-lg px-5 py-10 relative">
             <p class="text-xs">
-              100 tamu telah merespon akan datang, <br />
+              <%= confirmedToAttendCount %> tamu telah merespon akan datang, <br />
               mohon kirim konfirmasi.
             </p>
-            <div class="absolute bg-[#7a681f] flex gap-2 w-44 py-1 px-2 rounded-md whitespace-nowrap -bottom-5 -translate-x-1/2 left-1/2">
+            <div id="btnKonfirmasiHadir" data-url="<%= reciever.url %>" class="cursor-pointer absolute bg-[#7a681f] flex gap-2 w-44 py-1 px-2 rounded-md whitespace-nowrap -bottom-5 -translate-x-1/2 left-1/2">
               <img src="/assets/CENTANG.svg" alt="" class="w-5" />
               <h2 class="font-scriptbl text-sm">Konfirmasi Kehadiran</h2>
             </div>
@@ -297,7 +297,7 @@
           </p>
           <div class="w-72 bg-zinc-400 rounded-md mt-5">
             <form action="" class="flex flex-col items-start gap-2 p-4">
-              <input type="text" placeholder="Nama" class="w-full pl-2 font-bodoni text-black" />
+              <input type="text" placeholder="Nama" class="w-full pl-2 font-bodoni text-black" value="<%= reciever.Nama %>" readonly />
               <textarea name="" id="" placeholder="Tulis ucapan dan doa" class="w-full pl-2 font-bodoni h-24 text-black"></textarea>
               <button class="bg-[#58603a] px-2 py-1 rounded-md font-bodoni">
                 Kirim
@@ -415,3 +415,23 @@
   </section>
   <!-- COVER TUTUP END -->
 </div>
+
+<script>
+  const btnKonfirmasiHadir = document.querySelector("#btnKonfirmasiHadir")
+  btnKonfirmasiHadir.addEventListener("click", (e) => {
+    fetch(`${window.location.origin}/undangan/${e.srcElement.dataset.url}/presensi`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({})
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        alert(data.msg)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  })
+</script>

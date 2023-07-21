@@ -12,6 +12,10 @@ const recieverSchema = mongoose.Schema(
     url: {
       type: String,
     },
+    attendanceStatus: {
+      type: String,
+      default: "tidak hadir",
+    },
   },
   { timestamp: true }
 );

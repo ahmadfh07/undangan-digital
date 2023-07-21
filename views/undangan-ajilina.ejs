@@ -278,9 +278,9 @@
               <%= confirmedToAttendCount %> tamu telah merespon akan datang, <br />
               mohon kirim konfirmasi.
             </p>
-            <div class="cursor-pointer absolute bg-[#7a681f] flex gap-2 w-44 py-1 px-2 rounded-md whitespace-nowrap -bottom-5 -translate-x-1/2 left-1/2">
+            <div id="btnKonfirmasiHadir" data-url="<%= reciever.url %>" class="cursor-pointer absolute bg-[#7a681f] flex gap-2 w-44 py-1 px-2 rounded-md whitespace-nowrap -bottom-5 -translate-x-1/2 left-1/2">
               <img src="/assets/CENTANG.svg" alt="" class="w-5" />
-              <h2 id="btnKonfirmasiHadir" data-url="<%= reciever.url %>" class="font-scriptbl text-sm">Konfirmasi Kehadiran</h2>
+              <h2 class="font-scriptbl text-sm">Konfirmasi Kehadiran</h2>
             </div>
           </div>
         </div>
@@ -298,22 +298,42 @@
           <div class="w-72 bg-zinc-400 rounded-md mt-5">
             <form action="" class="flex flex-col items-start gap-2 p-4">
               <input type="text" placeholder="Nama" class="w-full pl-2 font-bodoni text-black" value="<%= reciever.Nama %>" readonly />
-              <textarea name="" id="inputUcapan" placeholder="Tulis ucapan dan doa" class="w-full pl-2 font-bodoni h-24 text-black"></textarea>
-              <button id="btnKirimUcapan" data-url="<%= reciever.url %>" class="bg-[#58603a] px-2 py-1 rounded-md font-bodoni">
+              <textarea name="" id="" placeholder="Tulis ucapan dan doa" class="w-full pl-2 font-bodoni h-24 text-black"></textarea>
+              <button class="bg-[#58603a] px-2 py-1 rounded-md font-bodoni">
                 Kirim
               </button>
             </form>
             <div class="text-start text-black font-bodoni pb-5 h-72 overflow-y-scroll">
-              <% lastTenSayings.forEach(e => { %>
               <div class="border-t-2 mt-5 border-[#a58c21]">
                 <div class="px-4">
-                  <h1 class="text-xl"><%= e?.Nama %></h1>
+                  <h1 class="text-xl">Siena</h1>
                   <p>
-                    <%= e?.saying %>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolore consectetur perspiciatis at doloribus ut,
+                    assumenda pariatur molestias ad delectus suscipit.
                   </p>
                 </div>
               </div>
-              <% }) %>
+              <div class="border-t-2 mt-5 border-[#a58c21]">
+                <div class="px-4">
+                  <h1 class="text-xl">Siena</h1>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolore consectetur perspiciatis at doloribus ut,
+                    assumenda pariatur molestias ad delectus suscipit.
+                  </p>
+                </div>
+              </div>
+              <div class="border-t-2 mt-5 border-[#a58c21]">
+                <div class="px-4">
+                  <h1 class="text-xl">Siena</h1>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolore consectetur perspiciatis at doloribus ut,
+                    assumenda pariatur molestias ad delectus suscipit.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -398,7 +418,6 @@
 
 <script>
   const btnKonfirmasiHadir = document.querySelector("#btnKonfirmasiHadir")
-  const btnKirimUcapan = document.querySelector("#btnKirimUcapan")
   btnKonfirmasiHadir.addEventListener("click", (e) => {
     fetch(`${window.location.origin}/undangan/${e.srcElement.dataset.url}/presensi`, {
         method: "POST",
@@ -406,25 +425,6 @@
           "Content-Type": "application/json",
         },
         body: JSON.stringify({})
-      })
-      .then((response) => response.json())
-      .then((data) => {
-        alert(data.msg)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  })
-
-  btnKirimUcapan.addEventListener("click", (e) => {
-    fetch(`${window.location.origin}/undangan/${e.srcElement.dataset.url}/ucapan`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          "saying": document.querySelector("#inputUcapan").value
-        })
       })
       .then((response) => response.json())
       .then((data) => {

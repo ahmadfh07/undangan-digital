@@ -14,6 +14,8 @@
 .buttonStopScan {
   @apply mt-7 rounded-md bg-red-600 px-2 py-2 text-sm font-semibold text-white transition-all duration-300 hover:shadow-lg;
 }
+
+
 @font-face {
   font-family: bodoni;
   src: url(/assets/font/BODONI\ BK\ BT\ BOOK.TTF);

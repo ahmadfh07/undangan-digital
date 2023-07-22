@@ -832,7 +832,7 @@
           data-aos-easing="ease-out-back"
           src="/assets/BGKEMBANG12.svg"
           alt=""
-          class="absolute bottom-16 right-0 w-52"
+          class="absolute bottom-16 right-0 w-32"
         />
       </div>
     </section>
@@ -841,15 +841,28 @@
 <!-- COVER TUTUP END -->
 
 <!-- AUDIO -->
-<audio autoplay controls>
-  <source src="/assets/audio/Muara1.mp3" type="audio/mpeg" />
+
+<button
+  id="toggleButtonSpeaker"
+  onclick="PlayStop()"
+  type="button"
+  class="fixed bottom-2 left-2 z-20 rounded-full bg-[#7a681f] p-2"
+>
+  <img id="speakerUp" src="/assets/SpeakerWave.svg" alt="" class="hidden w-5" />
+  <img id="speakerDown" src="/assets/SpeakerXMark.svg" alt="" class="w-5" />
+</button>
+<audio id="audioID" autoplay loop>
+  <source src="/assets/audio/Muara1.mp3" type="audio/mp3" />
 </audio>
+
 <!-- AUDIO END -->
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <script>
   AOS.init();
 </script>
+
 <script>
   const btnKonfirmasiHadir = document.querySelector('#btnKonfirmasiHadir');
   const btnKirimUcapan = document.querySelector('#btnKirimUcapan');
@@ -857,6 +870,17 @@
   const button = document.getElementById('myButton');
   const page = document.getElementById('page');
   const body = document.getElementsByTagName('body')[0];
+  var myaudio = document.getElementById('audioID');
+  const toggleButtonSpeaker = document.getElementById('toggleButtonSpeaker');
+
+  toggleButtonSpeaker.addEventListener('click', () => {
+    document.getElementById('speakerUp').classList.toggle('hidden');
+    document.getElementById('speakerDown').classList.toggle('hidden');
+  });
+
+  function PlayStop() {
+    return myaudio.paused ? myaudio.play() : myaudio.pause();
+  }
 
   button.addEventListener('click', function () {
     page.classList.add('translate-y-full');

@@ -819,6 +819,12 @@
     </div>
   </section>
   <!-- COVER TUTUP END -->
+
+  <!-- AUDIO -->
+  <audio autoplay>
+    <source src="/assets/audio/Muara1.mp3" type="audio/mpeg" />
+  </audio>
+  <!-- AUDIO END -->
 </div>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
@@ -830,9 +836,11 @@
   const btnSalinBSI = document.querySelector('#btnSalinBSI');
   const button = document.getElementById('myButton');
   const page = document.getElementById('page');
+  const body = document.getElementsByTagName('body')[0];
 
   button.addEventListener('click', function () {
     page.classList.add('translate-y-full');
+    body.classList.remove('overflow-y-hidden');
   });
 
   btnKonfirmasiHadir.addEventListener('click', (e) => {

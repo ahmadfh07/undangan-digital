@@ -654,6 +654,38 @@ video {
   top: -0.75rem;
 }
 
+.-right-1\/2{
+  right: -50%;
+}
+
+.-right-3{
+  right: -0.75rem;
+}
+
+.-right-36{
+  right: -9rem;
+}
+
+.-right-2{
+  right: -0.5rem;
+}
+
+.-right-20{
+  right: -5rem;
+}
+
+.left-2{
+  left: 0.5rem;
+}
+
+.left-20{
+  left: 5rem;
+}
+
+.left-16{
+  left: 4rem;
+}
+
 .-z-0{
   z-index: 0;
 }

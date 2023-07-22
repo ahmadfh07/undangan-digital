@@ -1,17 +1,18 @@
-<div class="w-full max-w-[640px]">
+<div class="relative w-full max-w-[640px]">
   <!-- HALAMAN 1 -->
-  <section>
+  <section
+    id="page"
+    class="fixed z-10 w-full bg-white transition-transform duration-500"
+  >
     <div
       class="relative h-screen bg-gradient-to-b from-white from-70% to-[#e0e0e0]"
     >
       <img
         src="/assets/KEMBANG1.svg"
         alt=""
-        class="relative -top-32 left-1/2 w-64 -translate-x-1/2"
+        class="relative left-1/2 top-0 w-64 -translate-x-1/2"
       />
-      <div
-        class="-mt-[118px] flex flex-col items-center text-center font-bodoni"
-      >
+      <div class="flex flex-col items-center text-center font-bodoni">
         <div class="flex flex-col gap-2">
           <h1 class="text-xs font-medium">UNDANGAN PERNIKAHAN</h1>
           <svg
@@ -66,12 +67,13 @@
             Kepada Yang Terhormat <br />
             Bapak/ Ibu/ Saudara/i :
           </h3>
-          <h1 class="text-xl"><%= reciever.Nama %></h1>
+          <h1 class="text-xl font-bold"><%= reciever.Nama %></h1>
           <h3 class="text-[8px]">
             *mohon maaf apabila terdapat kesalahan <br />
             penulisan nama dan atau gelar
           </h3>
           <button
+            id="myButton"
             class="flex items-center justify-center gap-3 rounded-lg bg-[#7a681f] px-2 py-1 text-white"
           >
             <img src="/assets/PESAN.svg" alt="" class="w-5" />
@@ -81,7 +83,7 @@
         <img
           src="/assets/KEMBANGBAWAH1.svg"
           alt=""
-          class="absolute bottom-0 w-32"
+          class="absolute bottom-5 w-28"
         />
       </div>
     </div>
@@ -826,6 +828,12 @@
   const btnKonfirmasiHadir = document.querySelector('#btnKonfirmasiHadir');
   const btnKirimUcapan = document.querySelector('#btnKirimUcapan');
   const btnSalinBSI = document.querySelector('#btnSalinBSI');
+  const button = document.getElementById('myButton');
+  const page = document.getElementById('page');
+
+  button.addEventListener('click', function () {
+    page.classList.add('translate-y-full');
+  });
 
   btnKonfirmasiHadir.addEventListener('click', (e) => {
     fetch(

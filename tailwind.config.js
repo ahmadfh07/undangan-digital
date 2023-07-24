@@ -1,32 +1,33 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/*.{html,js,css}", "./views/*.ejs", "./views/layout/*.ejs"],
+  content: ['./src/*.{html,js,css}', './views/*.ejs', './views/layout/*.ejs'],
   theme: {
     extend: {
       screens: {
-        xs: "320px",
+        xs: '320px',
       },
       fontFamily: {
-        playfair: ["Playfair Display"],
-        dancing: ["Dancing Script"],
-        poppins: ["Poppins"],
-        kufi: ["Reem Kufi Fun"],
-        aref: ["Aref Ruqaa Ink"],
-        rakkas: ["Rakkas"],
-        Inter: ['"Inter"', "sans-serif"],
-        bodoni: ["bodoni"],
-        greatvibes: ["greatvibes"],
-        scriptbl: ["scriptbl"],
+        playfair: ['Playfair Display'],
+        dancing: ['Dancing Script'],
+        poppins: ['Poppins'],
+        kufi: ['Reem Kufi Fun'],
+        aref: ['Aref Ruqaa Ink'],
+        rakkas: ['Rakkas'],
+        Inter: ['"Inter"', 'sans-serif'],
+        bodoni: ['bodoni'],
+        greatvibes: ['greatvibes'],
+        scriptbl: ['scriptbl'],
+        bodoniItalic: ['bodoniItalic'],
       },
       colors: {
-        biruTua: "#1E3135",
-        10: "#F7E3AF",
-        30: "#F3EEC3",
+        biruTua: '#1E3135',
+        10: '#F7E3AF',
+        30: '#F3EEC3',
       },
       fontSize: {
-        xxs: "0.65rem",
+        xxs: '0.65rem',
       },
     },
   },
-  plugins: [require("autoprefixer")],
+  plugins: [require('autoprefixer')],
 };

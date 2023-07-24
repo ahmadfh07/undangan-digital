@@ -554,6 +554,10 @@ video {
   bottom: -1.25rem;
 }
 
+.-right-16{
+  right: -4rem;
+}
+
 .bottom-0{
   bottom: 0px;
 }
@@ -648,26 +652,6 @@ video {
 
 .top-64{
   top: 16rem;
-}
-
-.-right-0{
-  right: -0px;
-}
-
-.-right-10{
-  right: -2.5rem;
-}
-
-.-right-1{
-  right: -0.25rem;
-}
-
-.-right-12{
-  right: -3rem;
-}
-
-.-right-16{
-  right: -4rem;
 }
 
 .-z-0{
@@ -1015,10 +999,6 @@ video {
 
 .items-center{
   align-items: center;
-}
-
-.justify-start{
-  justify-content: flex-start;
 }
 
 .justify-end{
@@ -1408,8 +1388,8 @@ video {
   padding-bottom: 16rem;
 }
 
-.pb-72{
-  padding-bottom: 18rem;
+.pb-\[415px\]{
+  padding-bottom: 415px;
 }
 
 .pl-2{
@@ -1444,26 +1424,6 @@ video {
   padding-top: 20rem;
 }
 
-.pb-96{
-  padding-bottom: 24rem;
-}
-
-.pb-\[\]{
-  padding-bottom: ;
-}
-
-.pb-\[400px\]{
-  padding-bottom: 400px;
-}
-
-.pb-\[410px\]{
-  padding-bottom: 410px;
-}
-
-.pb-\[415px\]{
-  padding-bottom: 415px;
-}
-
 .text-left{
   text-align: left;
 }
@@ -1482,6 +1442,10 @@ video {
 
 .font-bodoni{
   font-family: bodoni;
+}
+
+.font-bodoniItalic{
+  font-family: bodoniItalic;
 }
 
 .font-dancing{
@@ -1506,10 +1470,6 @@ video {
 
 .font-scriptbl{
   font-family: scriptbl;
-}
-
-.font-bodoniItalic{
-  font-family: bodoniItalic;
 }
 
 .text-2xl{
